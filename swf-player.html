@@ -1,0 +1,28 @@
+<style type="text/css">
+	.flex-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.file-upload {
+		margin-bottom: 10px;
+		align-self: center;
+	}
+
+	.swf-player {
+		flex: 1;
+	}
+</style>
+
+<script type="text/javascript">
+	var fileAdded = function (event) {
+		document.getElementById("swfPlayer").data = URL.createObjectURL(event.target.files[0]);
+	};
+</script>
+
+<div class="flex-container">
+	<input type="file" class="file-upload" accept="application/x-shockwave-flash" id="fileUpload" onChange="fileAdded(event);">
+	<object type="application/x-shockwave-flash" class="swf-player" id="swfPlayer"></object>
+</div>
